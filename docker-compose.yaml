@@ -1,0 +1,38 @@
+version: '3.7'
+
+#
+# The original source to the container can be found here:
+# https://github.com/snipah/hyperion_ng.git
+
+services:
+  hyperion:
+    container_name: hyperion
+    image: wizbang/hyperion.ng:latest
+    hostname: hyperion
+    network_mode: "bridge"
+    ports:
+      - target: 19445
+        published: 19445
+        protocol: tcp
+        mode: host
+      - target: 19444
+        published: 19444
+        protocol: tcp
+        mode: host
+      # Web interface
+      - target: 8090
+        published: 8090
+        protocol: tcp
+      # Boblightd interface
+      - target: 19333
+        published: 19333
+        protocol: tcp
+      # WLED interface
+      - target: 21324
+        published: 21324
+        protocol: tcp
+    volumes:
+      - ./hyperion:/root/.hyperion:rw
+    environment:
+      TZ: "Europe/London"
+    restart: unless-stopped         # Set container to always restart
