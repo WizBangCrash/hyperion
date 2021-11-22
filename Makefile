@@ -1,7 +1,7 @@
 
 DOCKER_REPO=wizbang
 APP_NAME=hyperion.ng
-VERSION=2.0.0-alpha.10
+VERSION=2.0.12
 
 # DOCKER TASKS
 # Build the container
@@ -24,7 +24,7 @@ release: build-nc publish ## Make a release by building and publishing the `{ver
 
 
 # Docker publish
-publish: repo-login publish-latest publish-version ## Publish the `{version}` ans `latest` tagged containers to ECR
+publish: publish-latest publish-version ## Publish the `{version}` ans `latest` tagged containers to ECR
 
 publish-latest: tag-latest ## Publish the `latest` taged container to ECR
 	@echo 'publish latest to $(DOCKER_REPO)'

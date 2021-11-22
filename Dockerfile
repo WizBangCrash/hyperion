@@ -1,6 +1,6 @@
 FROM ubuntu:rolling
 
-ARG HYPERION_VERSION=2.0.0-alpha.10
+ARG HYPERION_VERSION=2.0.12
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
